@@ -4,11 +4,11 @@ const dishesSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    unique: true,
   },
   name: {
     type: String,
     required: true,
+    unique: true,
   },
   price: {
     type: Number,
@@ -16,6 +16,7 @@ const dishesSchema = new mongoose.Schema({
   },
   description: String,
   ingredients: String,
+  allergens: String,
 });
 
 const Dish = mongoose.model('Dish', dishesSchema);
