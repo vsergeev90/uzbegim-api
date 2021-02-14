@@ -3,10 +3,14 @@ const menuController = require('../controllers/menuController');
 
 const router = express();
 
-router.param('id', menuController.checkID);
+router
+  .route('/')
+  .get(menuController.getAllDishes)
+  .post(menuController.createDish);
 
-router.route('/').get(menuController.getAllMenu);
-
-router.route('/:id').get(menuController.getMenu);
+router
+  .route('/:id')
+  .get(menuController.getDish)
+  .patch(menuController.updateDish);
 
 module.exports = router;

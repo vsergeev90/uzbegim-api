@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const menuRouter = require('./routes/menuRouter');
+const orderRouter = require('./routes/orderRouter');
 
 const app = express();
 app.use(express.json());
@@ -18,11 +19,6 @@ app.use((req, res, next) => {
 
 app.use('/api/v1/menu/', menuRouter);
 
-app.post('/order', (req, res) => {
-  res.status(500).json({
-    status: 'server error',
-    message: `this route isn't ready yet`,
-  });
-});
+app.use('/api/v1/order', orderRouter);
 
 module.exports = app;

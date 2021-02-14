@@ -1,40 +1,83 @@
-const fs = require('fs');
+const Dish = require('../model/dishesModel');
 
-const menu = JSON.parse(fs.readFileSync(`${__dirname}/../data.json`, 'utf-8'));
+const throwError = (res, err) => {
+  console.log(err);
+  res.status(404).json({
+    status: 'fail',
+    message: {
+      err,
+    },
+  });
+};
 
-exports.checkID = (req, res, next, val) => {
-  const id = +req.params.id;
+exports.getAllDishes = async (req, res) => {
+  try {
+    const menu = await Dish.find();
 
-  if (id > menu.length) {
-    return res.status(400).json({
-      status: 'fail',
-      message: 'no such id',
+    res.status(200).json({
+      status: 'ok',
+      message: 'everything seems to work',
+      data: {
+        menu,
+      },
     });
+  } catch (err) {
+    throwError(res, err);
   }
-
-  next();
 };
 
-exports.getAllMenu = (req, res) => {
-  res.status(200).json({
-    status: 'ok',
-    message: 'everything seems to work',
-    data: {
-      menu,
-    },
-  });
+exports.createDish = async (req, res) => {
+  try {
+    const newDish = await Dish.create(req.body);
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        newDish,
+      },
+    });
+  } catch (err) {
+    throwError(res, err);
+  }
 };
 
-exports.getMenu = (req, res) => {
-  const id = +req.params.id;
+// need some additional modifications
+exports.updateDish = async (req, res) => {
+  try {
+    const update = req.body;
+    const keys = Object.keys(update);
 
-  const item = menu.find((el) => el.id === id);
+    keys.forEach(async (el) => {
+      let query = {};
+      query[el] = update[el];
 
-  res.status(200).json({
-    status: 'ok',
-    message: 'something did happen just trust me',
-    data: {
-      item,
-    },
-  });
+      // !!! wirite a function to check the spelling of the key to be changed
+
+      await Dish.findByIdAndUpdate(req.params.id, query);
+    });
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        update,
+      },
+    });
+  } catch (err) {
+    throwError(res, err);
+  }
+};
+
+exports.getDish = async (req, res) => {
+  try {
+    const dish = await Dish.findById(req.params.id);
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        dish,
+      },
+    });
+  } catch (err) {
+    throwError(res, err);
+  }
 };
