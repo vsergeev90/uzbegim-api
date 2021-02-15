@@ -1,0 +1,205 @@
+[
+    {
+        "category": "Polévky",
+        "name": "Lagman",
+        "price": 160,
+        "ingredients": "Domácí nudle, hovězí maso"
+    },
+    {
+        "category": "Polévky",
+        "name": "Čučvara",
+        "price": 135,
+        "ingredients": "Testové taštičky s hovězím masem v polévce"
+    },
+    {
+        "category": "Polévky",
+        "name": "Mastava",
+        "price": 115,
+        "ingredients": "Ryže, hovězí maso, mrkev"
+    },
+    {
+        "category": "Polévky",
+        "name": "Mochara",
+        "price": 135,
+        "ingredients": "Cizrna, hovězí maso"
+    },
+    {
+        "category": "Polévky",
+        "name": "Šorpa",
+        "price": 115,
+        "ingredients": "Jehněcí maso, brambory, mrkev"
+    },
+    {
+        "category": "Hlavní Jídla",
+        "name": "Pilav",
+        "price": 165,
+        "ingredients": "Rýže, hovězí maso, cizirna, mrkev"
+    }, 
+    {
+        "category": "Hlavní Jídla",
+        "name": "Kovruma Lagman",
+        "price": 165,
+        "ingredients": "Smažené domáci nudle, hovězí mleté, mrkev"
+    }, 
+    {
+        "category": "Hlavní Jídla",
+        "name": "Manty",
+        "price": 150,
+        "ingredients": "testove taštičky s hovězím masem uvařené na paře"
+    }, 
+    {
+        "category": "Hlavní Jídla",
+        "name": "Samsa",
+        "price": 50,
+        "ingredients": "Domácí listové těsto plněné hovězím masem"
+    }, 
+    {
+        "category": "Hlavní Jídla",
+        "name": "Kazan kebab",
+        "price": 200,
+        "ingredients": "Jehněčí žebra, brambory, salát"
+    }, 
+    {
+        "category": "Hlavní Jídla",
+        "name": "Tabaka",
+        "price": 135,
+        "ingredients": "Kuřecí zadní, brambory, salát"
+    }, 
+    {
+        "category": "Hlavní Jídla",
+        "name": "Džizz",
+        "price": 200,
+        "ingredients": "Jehněcí maso, hranolky nebo rýže, salát"
+    }, 
+    {
+        "category": "Hlavní Jídla",
+        "name": "Dolma",
+        "price": 175,
+        "ingredients": "Nadívaná paprika, masová koule s překvapením"
+    }, 
+    {
+        "category": "Hlavní Jídla",
+        "name": "Ryba",
+        "price": 250,
+        "ingredients": "Pangasius"
+    }, 
+    {
+        "category": "Turecký kebab",
+        "name": "Durum klasik",
+        "price": 89,
+        "ingredients": "Hovězí maso, salát, dresink, zapečena tortilla"
+    }, 
+    {
+        "category": "Turecký kebab",
+        "name": "Mega durum",
+        "price": 109,
+        "ingredients": "Extra proce hovězího masa, salát, olivy, dresink, zapečená tortilla"
+    }, 
+    {
+        "category": "Turecký kebab",
+        "name": "Durum s olivami",
+        "price": 89,
+        "ingredients": "Hovězí maso, olivy salát, dresink, zapečená tortilla"
+    }, 
+    {
+        "category": "Turecký kebab",
+        "name": "Doner klasik",
+        "price": 79,
+        "ingredients": "Hovězí maso, salát, dresink, domací chleb"
+    }, 
+    {
+        "category": "Turecký kebab",
+        "name": "Mega Doner",
+        "price": 99,
+        "ingredients": "Extra proce hovězího masa, salát, olivy, dresink, domací chleb"
+    }, 
+    {
+        "category": "Turecký kebab",
+        "name": "Doner s olivami",
+        "price": 95,
+        "ingredients": "Hovězí maso, olivy salát, dresink, domací chleb"
+    }, 
+    {
+        "category": "Turecký kebab",
+        "name": "Kebab box klasik",
+        "price": 79,
+        "ingredients": "Hovězí maso, salát, dresink"
+    }, 
+    {
+        "category": "Turecký kebab",
+        "name": "Mega kebab box",
+        "price": 99,
+        "ingredients": "Extra proce hovězího masa, salát, dresink, hranolky"
+    }, 
+    {
+        "category": "Turecký kebab",
+        "name": "Kebab box s rýží",
+        "price": 89,
+        "ingredients": "Hovězí maso, salát, dresink, rýže"
+    }, 
+    {
+        "category": "Turecký kebab",
+        "name": "Kebab taliř klasik",
+        "price": 110,
+        "ingredients": "Hovězí maso, salát, dresink, hranolky"
+    }, 
+    {
+        "category": "Turecký kebab",
+        "name": "Mega kebab tailř",
+        "price": 125,
+        "ingredients": "Extra proce hovězího masa, salát, dresink, hranolky"
+    }, 
+    {
+        "category": "Turecký kebab",
+        "name": "Kebab taliř s rýží",
+        "price": 120,
+        "ingredients": "Hovězí maso, salát, dresink, rýže"
+    }, 
+    {
+        "category": "Falafel",
+        "name": "Falafel doner",
+        "price": 79,
+        "ingredients": "Falafel, salát, dresink, domáci chleb"
+    }, 
+    {
+        "category": "Falafel",
+        "name": "Falafel durum",
+        "price": 85,
+        "ingredients": "Falafel, salát, dresink, zapečená tortilla"
+    }, 
+    {
+        "category": "Falafel",
+        "name": "Falafel taliř",
+        "price": 110,
+        "ingredients": "Falafel, salát, dresink, hranolky/chléb"
+    }, 
+    {
+        "category": "Salát",
+        "name": "Ačik-čučuk",
+        "price": 50,
+        "ingredients": "rajčata, okurky, cibule"
+    },
+    {
+        "category": "Salát",
+        "name": "Selský salát",
+        "price": 60,
+        "ingredients": "Mix zelí rajčata, okurky, dresink"
+    }, 
+    {
+        "category": "Salát",
+        "name": "Mrkev",
+        "price": 50,
+        "ingredients": "Mrkev"
+    }, 
+    {
+        "category": "Pečivo",
+        "name": "Lepeška",
+        "price": 20,
+        "ingredients": "chléb"
+    }, 
+    {
+        "category": "Desert",
+        "name": "Baklava",
+        "price": 30
+    }
+]

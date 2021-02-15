@@ -1,8 +1,9 @@
-const server = require('./app');
-const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 
+const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' });
+
+const server = require('./app');
 
 const DB = process.env.DATABASE.replace(
   '<PASSWORD>',
@@ -16,7 +17,6 @@ mongoose
     autoIndex: true,
     useFindAndModify: false,
     useUnifiedTopology: true,
-    returnOriginal: false,
   })
   .then(() => console.log('Connected to database'));
 

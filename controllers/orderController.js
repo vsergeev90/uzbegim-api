@@ -2,7 +2,7 @@ const Order = require('../model/orderModel');
 
 const throwError = (res, err) => {
   console.log(err);
-  res.status(404).json({
+  res.status(400).json({
     status: 'fail',
     message: {
       err,
@@ -56,8 +56,31 @@ exports.getOrder = async (req, res) => {
 };
 
 exports.updateOrder = async (req, res) => {
-  res.status(200).json({
-    status: 'success',
-    message: 'yaaay it did work',
-  });
+  try {
+    const order = await Order.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        order,
+      },
+    });
+  } catch (error) {
+    throwError(res, err);
+  }
+};
+
+exports.deleteOrder = async (req, res) => {
+  try {
+    await Order.findByIdAndDelete(req.params.id, req.body);
+
+    res.status(204).json({
+      status: 'success',
+    });
+  } catch (error) {
+    throwError(res, err);
+  }
 };

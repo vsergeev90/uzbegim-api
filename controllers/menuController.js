@@ -44,16 +44,9 @@ exports.createDish = async (req, res) => {
 // need some additional modifications
 exports.updateDish = async (req, res) => {
   try {
-    const update = req.body;
-    const keys = Object.keys(update);
-
-    keys.forEach(async (el) => {
-      let query = {};
-      query[el] = update[el];
-
-      // !!! wirite a function to check the spelling of the key to be changed
-
-      await Dish.findByIdAndUpdate(req.params.id, query);
+    const update = await Dish.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
     });
 
     res.status(200).json({
