@@ -12,7 +12,15 @@ const throwError = (res, err) => {
 
 exports.getAllDishes = async (req, res) => {
   try {
-    const menu = await Dish.find();
+    const menu = await Dish.aggregate([
+      {
+        $group: {
+          _id: '$category',
+          dishes: { $push: '$name' },
+          price: { $push: '$price' },
+        },
+      },
+    ]);
 
     res.status(200).json({
       status: 'ok',
