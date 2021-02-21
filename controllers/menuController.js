@@ -72,7 +72,7 @@ exports.updateDish = async (req, res) => {
 
 exports.getDish = async (req, res) => {
   try {
-    const dish = await Dish.findById(req.params.id);
+    const dish = await Dish.find({ slug: req.params.id });
 
     res.status(200).json({
       status: 'success',
