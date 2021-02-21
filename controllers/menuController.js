@@ -21,7 +21,6 @@ exports.getAllDishes = async (req, res) => {
         },
       },
     ]);
-
     res.status(200).json({
       status: 'ok',
       message: 'everything seems to work',
