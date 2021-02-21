@@ -18,8 +18,23 @@ exports.getAllDishes = async (req, res) => {
           _id: '$category',
           dishes: { $push: '$name' },
           price: { $push: '$price' },
+          groupNum: {
+            $accumulator: {
+              init: function () {
+                // Set the initial state
+                return { count: 0 };
+              },
+              accumulate: function (state) {
+                // Define how to update the state
+                return {
+                  count: state.count + 1,
+                };
+              },
+            },
+          },
         },
       },
+      { $sort: { groupNum: 1 } },
     ]);
     res.status(200).json({
       status: 'ok',
