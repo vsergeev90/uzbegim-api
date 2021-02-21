@@ -21,6 +21,11 @@ const orderSchema = new mongoose.Schema({
     },
   },
   comment: String,
+  createdAt: {
+    type: Date,
+    default: new Date().toISOString(),
+    select: false,
+  },
 });
 
 const Order = mongoose.model('Order', orderSchema);

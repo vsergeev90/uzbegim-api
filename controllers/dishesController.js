@@ -1,86 +1,60 @@
 const Dish = require('../model/dishesModel');
+const catchAsync = require('./../utils/catchAsync');
 
-const throwError = (res, err) => {
-  console.log(err);
-  res.status(404).json({
-    status: 'fail',
-    message: {
-      err,
+exports.getAllDishes = catchAsync(async (req, res) => {
+  const menu = await Dish.aggregate([
+    {
+      $group: {
+        _id: '$category',
+        groupNum: { $push: '$groupNum' },
+        dishes: { $push: '$name' },
+        price: { $push: '$price' },
+        slug: { $push: '$slug' },
+      },
+    },
+    { $sort: { groupNum: 1 } },
+  ]);
+  res.status(200).json({
+    status: 'ok',
+    message: 'everything seems to work',
+    data: {
+      menu,
     },
   });
-};
+});
 
-exports.getAllDishes = async (req, res) => {
-  try {
-    const menu = await Dish.aggregate([
-      {
-        $group: {
-          _id: '$category',
-          groupNum: { $push: '$groupNum' },
-          dishes: { $push: '$name' },
-          price: { $push: '$price' },
-          slug: { $push: '$slug' },
-        },
-      },
-      { $sort: { groupNum: 1 } },
-    ]);
-    res.status(200).json({
-      status: 'ok',
-      message: 'everything seems to work',
-      data: {
-        menu,
-      },
-    });
-  } catch (err) {
-    throwError(res, err);
-  }
-};
+exports.createDish = catchAsync(async (req, res) => {
+  const newDish = await Dish.create(req.body);
 
-exports.createDish = async (req, res) => {
-  try {
-    const newDish = await Dish.create(req.body);
+  res.status(200).json({
+    status: 'success',
+    data: {
+      newDish,
+    },
+  });
+});
 
-    res.status(200).json({
-      status: 'success',
-      data: {
-        newDish,
-      },
-    });
-  } catch (err) {
-    throwError(res, err);
-  }
-};
+exports.updateDish = catchAsync(async (req, res) => {
+  const update = await Dish.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true,
+  });
 
-// need some additional modifications
-exports.updateDish = async (req, res) => {
-  try {
-    const update = await Dish.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true,
-    });
+  res.status(200).json({
+    status: 'success',
+    data: {
+      update,
+    },
+  });
+});
 
-    res.status(200).json({
-      status: 'success',
-      data: {
-        update,
-      },
-    });
-  } catch (err) {
-    throwError(res, err);
-  }
-};
+exports.getDish = catchAsync(async (req, res) => {
+  const dish = await Dish.find({ slug: req.params.id });
 
-exports.getDish = async (req, res) => {
-  try {
-    const dish = await Dish.find({ slug: req.params.id });
-
-    res.status(200).json({
-      status: 'success',
-      data: {
-        dish,
-      },
-    });
-  } catch (err) {
-    throwError(res, err);
-  }
-};
+  res.status(200).json({
+    status: 'success',
+    data: {
+      dish,
+    },
+  });
+});
