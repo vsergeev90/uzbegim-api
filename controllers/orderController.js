@@ -1,4 +1,5 @@
 const Order = require('../model/orderModel');
+const APIFeatures = require('../utils/APIFeatures');
 
 const throwError = (res, err) => {
   console.log(err);
@@ -12,7 +13,12 @@ const throwError = (res, err) => {
 
 exports.getAllOrders = async (req, res) => {
   try {
-    const orders = await Order.find();
+    const features = new APIFeatures(Order.find(), req.query)
+      .filter()
+      .sort()
+      .limitFields()
+      .paginate();
+    const orders = await features.query;
 
     res.status(200).json({
       status: 'success',
