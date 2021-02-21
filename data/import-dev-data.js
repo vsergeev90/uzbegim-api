@@ -46,6 +46,6 @@ if (process.argv[2] === '--import') {
   importData();
 }
 
-if (process.argv[2] === '--delete') {
+if (process.argv[2] === '--remove') {
   deleteData();
 }
