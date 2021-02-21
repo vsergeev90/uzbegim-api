@@ -16,9 +16,10 @@ exports.getAllDishes = async (req, res) => {
       {
         $group: {
           _id: '$category',
+          groupNum: { $push: '$groupNum' },
           dishes: { $push: '$name' },
           price: { $push: '$price' },
-          groupNum: { $push: '$groupNum' },
+          slug: { $push: '$slug' },
         },
       },
       { $sort: { groupNum: 1 } },
